@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<HBox fx:id="HBoxDemnade" prefHeight="56.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DemandeController">
+   <children>
+      <Label fx:id="lbDateDemande" prefHeight="56.0" prefWidth="115.0" text="Date Demande" />
+      <Label fx:id="lbUtilisateur" prefHeight="63.0" prefWidth="104.0" text="Utilisateur" />
+      <Label fx:id="lbDestination" prefHeight="63.0" prefWidth="104.0" text="Destination" />
+      <Label fx:id="lbLibelleEvenement" prefHeight="56.0" prefWidth="121.0" text="LibelleEvenement" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onMousePressed="#click" prefHeight="31.0" prefWidth="78.0" text="Modifier" />
+            <Pane prefHeight="56.0" prefWidth="13.0" />
+            <Button mnemonicParsing="false" onAction="#SupprimerDemenedeEvenement" prefHeight="31.0" prefWidth="95.0" text="Supprimer " />
+         </children>
+      </HBox>
+   </children>
+</HBox>

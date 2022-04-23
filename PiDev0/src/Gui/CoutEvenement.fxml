@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<HBox prefHeight="49.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.CoutEvenementController">
+   <children>
+      <Pane prefHeight="49.0" prefWidth="19.0" />
+      <Label fx:id="lbCategorie" prefHeight="49.0" prefWidth="92.0" text="Catégorie" />
+      <Label fx:id="lbNombreBillets" prefHeight="54.0" prefWidth="105.0" text="Nombre Billets" />
+      <Pane prefHeight="49.0" prefWidth="24.0" />
+      <Label fx:id="lbPrix" prefHeight="49.0" prefWidth="54.0" text="Prix" />
+      <Pane prefHeight="49.0" prefWidth="12.0" />
+      <Pane prefHeight="49.0" prefWidth="70.0" />
+      <Label prefHeight="49.0" prefWidth="90.0" text="Supprimer" />
+   </children>
+</HBox>
