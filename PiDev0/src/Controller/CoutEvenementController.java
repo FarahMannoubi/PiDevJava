@@ -37,7 +37,7 @@ public class CoutEvenementController implements Initializable {
     }    
     public void setData(CoutEvenement ce){
         scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
-        
+        System.out.println("testGit");
         //lbCategorie
     }
     
