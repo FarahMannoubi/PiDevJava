@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1105.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListDemandeEvenemetAdminController">
+   <left>
+      <VBox prefHeight="660.0" prefWidth="455.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <children>
+            <VBox prefHeight="116.0" prefWidth="395.0">
+               <children>
+                  <ImageView fx:id="imageEvent" fitHeight="150.0" fitWidth="392.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="395.0">
+               <children>
+                  <Label prefHeight="97.0" prefWidth="80.0" text="Destination" />
+                  <Pane prefHeight="101.0" prefWidth="68.0" />
+                  <Pane prefHeight="101.0" prefWidth="22.0" />
+                  <Pane prefHeight="101.0" prefWidth="14.0" />
+                  <Label fx:id="lbDestination" text="lbDestination" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="395.0">
+               <children>
+                  <Label prefHeight="49.0" prefWidth="198.0" text="Description Demande" />
+                  <Label fx:id="LbDesDemande" text="LbDesDemande" />
+               </children>
+            </HBox>
+            <HBox prefHeight="49.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="49.0" prefWidth="51.0" />
+                  <Label text=" Evènement" />
+                  <Pane prefHeight="49.0" prefWidth="117.0" />
+                  <Label fx:id="lbLibEvenement" prefHeight="21.0" prefWidth="122.0" text="lbLibEvenement" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="43.0" prefWidth="52.0" />
+                  <Label text="Description Evènement" />
+                  <Pane prefHeight="43.0" prefWidth="48.0" />
+                  <Label text="lbDesEvent" />
+               </children>
+            </HBox>
+            <HBox prefHeight="42.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="52.0" />
+                  <Label text="Capacite" />
+                  <Pane prefHeight="42.0" prefWidth="140.0" />
+                  <Label fx:id="LbCapacite" text="LbCapacite" />
+               </children>
+            </HBox>
+            <HBox prefHeight="41.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="41.0" prefWidth="50.0" />
+                  <Label text="Date début Evènement" />
+                  <Pane prefHeight="41.0" prefWidth="49.0" />
+                  <Label fx:id="LbDateDebEvent" text="LbDateDebEvent" />
+               </children>
+            </HBox>
+            <HBox fx:id="heureDebut" prefHeight="48.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="48.0" prefWidth="45.0" />
+                  <Label text="Heure Début Evènement" />
+                  <Pane prefHeight="48.0" prefWidth="44.0" />
+                  <Label fx:id="LbHeureDebEvent" text="LbHeureDebEvent" />
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="43.0" prefWidth="47.0" />
+                  <Label text="Date Fin Evènement" />
+                  <Pane prefHeight="43.0" prefWidth="74.0" />
+                  <Label fx:id="LbDateFinEvent" text="LbDateFinEvent" />
+               </children>
+            </HBox>
+            <HBox prefHeight="36.0" prefWidth="395.0">
+               <children>
+                  <Pane prefHeight="36.0" prefWidth="45.0" />
+                  <Label text="Heure Fin Evènement" />
+                  <Pane prefHeight="36.0" prefWidth="62.0" />
+                  <Label fx:id="LbHeureFinEvent" text="LbHeureFinEvent" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="395.0">
+               <children>
+                  <JFXButton fx:id="buttonAccepter" onAction="#AccepterDemenedeEvenement" prefHeight="31.0" prefWidth="109.0" text="Accepter" />
+                  <JFXButton fx:id="buttonRefuser" onAction="#RefuserDemenedeEvenement" text="Refuser" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="624.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="656.0" prefWidth="707.0">
+               <children>
+                  <ScrollPane prefHeight="524.0" prefWidth="630.0" styleClass="transparent" stylesheets="@style.css">
+                     <content>
+                        <VBox fx:id="DemandeEvenementLayout" prefHeight="772.0" prefWidth="630.0">
+                           <children>
+                              <HBox prefHeight="50.0" prefWidth="630.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="135.0" text="Date Demande" />
+                                    <Label alignment="CENTER" prefHeight="54.0" prefWidth="93.0" text="Utilisateur" />
+                                    <Label alignment="CENTER" prefHeight="54.0" prefWidth="100.0" text="Destination" />
+                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text=" Evènement" textOverrun="CLIP" />
+                                    <Label alignment="CENTER" prefHeight="50.0" prefWidth="147.0" text="Actions" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="28.0" prefWidth="630.0" />
+                           </children></VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
