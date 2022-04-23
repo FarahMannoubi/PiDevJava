@@ -37,11 +37,10 @@ public class CoutEvenementController implements Initializable {
     }    
     public void setData(CoutEvenement ce){
         scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
-<<<<<<< HEAD
-        
-=======
+
+
         System.out.println("testGit");
->>>>>>> event
+
         //lbCategorie
     }
     
