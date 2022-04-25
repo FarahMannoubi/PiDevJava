@@ -107,6 +107,12 @@ public class AddDemandeEvenementController implements Initializable {
     private JFXButton bnAddCoutEvenemet;
     @FXML
     private VBox CoutEvenementLayout;
+    @FXML
+    private Label lbCategorie;
+    @FXML
+    private Label lbNombreBillets;
+    @FXML
+    private Label lbPrix;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -309,7 +315,7 @@ public class AddDemandeEvenementController implements Initializable {
                  HBox hBox=fxmlLoader.load();
                  CoutEvenementController coutEvenementController=fxmlLoader.getController();
                   coutEvenementController.setData(coutEvenements.get(i));
-           
+                 System.out.println("testtttttttttttt"+coutEvenements.get(i));
              
               CoutEvenementLayout.getChildren().add(hBox);
              
@@ -358,6 +364,10 @@ public class AddDemandeEvenementController implements Initializable {
           ce.setNbBillet(Integer.parseInt(tfNbBillet.getText()));
           ce.setPrix(Integer.parseInt(tfPrix.getText()));
           sce.addCoutEvenement(ce);
+                    
+          
+          
+          
         
     }
     

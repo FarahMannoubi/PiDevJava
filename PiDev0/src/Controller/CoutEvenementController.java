@@ -5,9 +5,12 @@
  */
 package Controller;
 
+import Models.CoutCategorie;
 import Models.CoutEvenement;
 import Services.ServiceCoutCategorie;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,12 +34,20 @@ public class CoutEvenementController implements Initializable {
      * Initializes the controller class.
      */
      ServiceCoutCategorie scc=new ServiceCoutCategorie();
+     List<CoutCategorie>CoutCategories=new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     public void setData(CoutEvenement ce){
-        scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
+        CoutCategories=scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
+         for(CoutCategorie cc:CoutCategories){
+             lbCategorie.setText(cc.getLibelle());
+              String prixString=Float.toString((float) ce.getPrix());
+               String ndDilletsString=Integer.toString( ce.getNbBillet());
+             lbNombreBillets.setText(ndDilletsString);
+             lbPrix.setText(prixString);
+         }
         System.out.println("testGit");
         //lbCategorie
     }
