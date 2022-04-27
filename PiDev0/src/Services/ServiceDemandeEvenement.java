@@ -28,6 +28,8 @@ import javafx.scene.image.Image;
 public class ServiceDemandeEvenement implements IServiceDemandeEvenement{
  Connexion instance = Connexion.getInstance();
     Connection cnx = instance.getCnx();
+    String req="SELECT `demande_evenement`.`id`, `demande_evenement`.`destination_id`, `demande_evenement`.`utilisateur_id`, `demande_evenement`.`date_demande`, `demande_evenement`.`statut`, `demande_evenement`.`description_demande`, `demande_evenement`.`date_debut_event`, `demande_evenement`.`date_fin_event`, `demande_evenement`.`heure_debut_event`, `demande_evenement`.`heure_fin_event`, `demande_evenement`.`description_event`, `demande_evenement`.`capacite`, `demande_evenement`.`libelle_evenement`, `demande_evenement`.`image` FROM `demande_evenement`,`destination`,`sous_categorie`"
+            + " ORDER BY `sous_categorie`.`categorie_id` ";
 
 public List<DemandeEvenement> GetDemandeEvenement(){
 ArrayList<DemandeEvenement> demandeEvenements = new ArrayList();

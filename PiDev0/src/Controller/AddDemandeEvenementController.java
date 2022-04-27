@@ -92,6 +92,7 @@ public class AddDemandeEvenementController implements Initializable {
        List<String>ListlibelleDestinations=new ArrayList<>();
         List<CoutCategorie>CoutCategories=new ArrayList<>();
          List<String>ListlibelleCoutCategories=new ArrayList<>();
+         List<CoutEvenement>CoutEvenements=new ArrayList<>();
      private String path;
   private String nameImage;
     @FXML
@@ -365,18 +366,24 @@ public class AddDemandeEvenementController implements Initializable {
           ce.setPrix(Integer.parseInt(tfPrix.getText()));
           sce.addCoutEvenement(ce);
                     
-          
+          CoutEvenements=GetCoutEvenement(ce);
           
           
         
     }
     
-    
- 
+    }
+        
+ public List<CoutEvenement> GetCoutEvenement(CoutEvenement ce){
+     
+     
+       List<CoutEvenement> coutEvenements=new ArrayList<>();
+     
+     return coutEvenements;
+ }
    
    
     
 }
 
     
-}

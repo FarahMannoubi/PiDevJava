@@ -90,7 +90,8 @@ String nom="fgff";
           double prix =sce.GetPrixCoutEvenementById(22);
            String prixString=Float.toString((float) prix);
         System.out.println("tttttttt"+prixString);
-      
+      ServiceUser su=new ServiceUser();
+        System.out.println("ListesUser"+su.afficherUsers());
     }
 }
     

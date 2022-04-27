@@ -48,6 +48,9 @@ public class EvenementController implements Initializable {
           this.myListener=myListener;
         this.evenemet=evenement;
         lbEvenement.setText(evenement.getLibelleEvenement());
+         // System.out.println("Event Choisi"+evenement);
+         // System.out.println("id Choisi"+id);
+          
          FileInputStream inputStream;
         try  {
             inputStream = new FileInputStream("C:/Users/manou/OneDrive/Desktop/PIDEV_CACT/public/upload/image/"+evenement.getImage());
