@@ -25,9 +25,22 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 //Parent root = FXMLLoader.load(getClass().getResource("AddDemandeEvenement.fxml"));
-Parent root = FXMLLoader.load(getClass().getResource("ListeEvenementCilent.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("ListeEvenementCilent.fxml"));
 //Parent root = FXMLLoader.load(getClass().getResource("ListDemandeEvenemetAdmin.fxml"));
-    stage.initStyle(StageStyle.UNDECORATED);
+Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("EvenementDetail.fxml"));
+
+
+//Parent root = FXMLLoader.load(getClass().getResource("ListEvenementClient2.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("EvenementDetail.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("AddCoutEvenement.fxml"));
+
+//Parent root = FXMLLoader.load(getClass().getResource("WeatherApi.fxml"));
+//Parent root = FXMLLoader.load(getClass().getResource("ListDemendeEvenementPartenaire.fxml"));
+
+
+    //stage.initStyle(StageStyle.UNDECORATED);
    
     Scene scene = new Scene(root);
     

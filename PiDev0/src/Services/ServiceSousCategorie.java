@@ -111,6 +111,64 @@ try {
             System.out.println(ex.getMessage());
         }
         return cat;    }
+   
+    
+    
+    
+    public List<SousCategorie> GetSousCategorieByIdDemandeEvenement(int id){
+          ArrayList<SousCategorie> souscategories = new ArrayList();
+            try {
+            Statement st = cnx.createStatement(); 
+            
+           String req="SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, `sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`,"
+                   + " `sous_categorie`.`description` FROM `sous_categorie`,`categorie`,`destination`,`demande_evenement`,`wishlist` WHERE" +
+"`demande_evenement`.`id`="+id+" AND `demande_evenement`.`destination_id`=`destination`.`id`and \n" +
+" `destination`.`souscategorie_id`=`sous_categorie`.`id` and `sous_categorie`.`categorie_id`=`categorie`.`id`";
+            
+            
+             
+          
+              ResultSet rs = st.executeQuery(req);
+              while (rs.next()) {  
+                   souscategories.add(new SousCategorie(rs.getInt(1), rs.getString("libelle"), rs.getString("description"),rs.getInt("categorie_id")));
+                                }
+              } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+         
+        return souscategories;
+    }
+  public int GetIdCategorieByIdDemandeEvenement(int id){
+         // ArrayList<Integer> souscategories = new ArrayList();
+         int idSousCategorieByIdDemandeEvenement=0;
+            try {
+            Statement st = cnx.createStatement(); 
+            
+           String req="SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, `sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`,"
+                   + " `sous_categorie`.`description` FROM `sous_categorie`,`categorie`,`destination`,`demande_evenement`,`wishlist` WHERE" +
+"`demande_evenement`.`id`="+id+" AND `demande_evenement`.`destination_id`=`destination`.`id`and \n" +
+" `destination`.`souscategorie_id`=`sous_categorie`.`id` and `sous_categorie`.`categorie_id`=`categorie`.`id`";
+            
+            
+             
+          
+              ResultSet rs = st.executeQuery(req);
+              while (rs.next()) {  
+                 idSousCategorieByIdDemandeEvenement=(rs.getInt("categorie_id"));
+                                }
+              } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+         
+        return idSousCategorieByIdDemandeEvenement;
+    }
+    
+    
+    
+    String req1= "SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, `sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`, `sous_categorie`.`description` "
+           + "FROM `sous_categorie`,`categorie`,`destination`,`demande_evenement`"
+           + " WHERE `demande_evenement`.`id`=2 AND `demande_evenement`.`destination_id`=`destination`.`id` "
+           + "and `destination`.`souscategorie_id`=`sous_categorie`.`id` and `sous_categorie`.`categorie_id`=`categorie`.`id`";
 }
     
     

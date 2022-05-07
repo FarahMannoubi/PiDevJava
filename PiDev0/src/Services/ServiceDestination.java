@@ -101,6 +101,23 @@ public class ServiceDestination implements IServiceDestination{
         }
         
         return id;    }
+     
+     public int GetIdGouvernoratByIdDestination(int id) {
+          
+           //int id=2;
+          try {
+            Statement st = cnx.createStatement(); 
+             String req = "SELECT `delegation_id` FROM `destination` WHERE `destination`.`id`="+id;
+            ResultSet rs = st.executeQuery(req);
+              while (rs.next()) {  
+                   id=rs.getInt("delegation_id");
+                //   System.out.println(rs.getInt("gouvernorat_id"+gouvernorat_id));
+                                }
+              } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return id;    }
 
      public String GetNomDestinationsById(int id) {
           

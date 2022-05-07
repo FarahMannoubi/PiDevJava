@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="816.0" prefWidth="1447.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.HomeController">
+   <children>
+      <BorderPane layoutX="-3.0" layoutY="-4.0" prefHeight="816.0" prefWidth="1447.0">
+         <center>
+            <AnchorPane fx:id="rootP" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <VBox prefHeight="691.0" prefWidth="256.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton onAction="#Admine" prefHeight="71.0" prefWidth="256.0" text="Admine" />
+                  <JFXButton onAction="#Partenaire" prefHeight="90.0" prefWidth="258.0" text="Partenaire" />
+                  <JFXButton onAction="#Client" prefHeight="82.0" prefWidth="261.0" text="Client" />
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="829.0" prefWidth="115.0" text="Label" />
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <HBox prefHeight="51.0" prefWidth="1447.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="63.0" prefWidth="1560.0" text="Label" />
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <HBox prefHeight="74.0" prefWidth="1447.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="65.0" prefWidth="272.0" text="Label" />
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

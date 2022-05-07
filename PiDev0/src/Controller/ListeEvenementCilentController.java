@@ -14,6 +14,7 @@ import Models.Wishlist;
 import Services.ServiceCoutCategorie;
 import Services.ServiceCoutEvenement;
 import Services.ServiceDemandeEvenement;
+import Services.ServiceSousCategorie;
 import Services.ServiceUser;
 import Services.ServiceWishlist;
 import java.io.FileInputStream;
@@ -86,17 +87,32 @@ public class ListeEvenementCilentController implements Initializable {
     /**
      * Initializes the controller class.
      */
+private List<DemandeEvenement>  EvenementDisponibleByIdCategorie=new ArrayList<>();
+private List<DemandeEvenement>  EvenementDisponibleByIdCategorie1=new ArrayList<>();
 private List<DemandeEvenement> evenement=new ArrayList<>();
+private List<DemandeEvenement> evenementOutWichlist=new ArrayList<>();
  private  List<CoutCategorie>libelleCoutCategorieOne=new ArrayList<>();
+ private List <Utilisateur> utilisateur=new ArrayList<>();
+  private List <Wishlist> Wishlist=new ArrayList<>();
+   private   List<Integer>listIdEvenementFromWishList=new ArrayList<>();
+    private   List<Integer> listIdEvenementFromWishListMethodGetIdCategorieByIdEvenementFromWishlists=new ArrayList<>();
+     private   List<Integer> listidCategorieByIdEvenementFromWishlists=new ArrayList<>();
+    private   List<Integer>listidCategorieByIdEvenementFromWishlistsGetIdCategorieByIdEvenementFromWishlists=new ArrayList<>();
+      private   List<Integer>listIdCategorieByIdEvenementFromWishlistssetChosenEvenement=new ArrayList<>();
+    
+    
+   
  private   List<String>libelleCoutCategories=new ArrayList<>();
  private  List<String> libelleCoutCategoriesByEvent=new ArrayList<>();
- private List <Utilisateur> utilisateur=new ArrayList<>();
  private List<String>nomUtilisateur=new ArrayList<>();
+ 
+ private  int idUtilisateur;
 ServiceDemandeEvenement de =new ServiceDemandeEvenement();
 ServiceCoutEvenement sce=new ServiceCoutEvenement();
 ServiceCoutCategorie scc=new ServiceCoutCategorie();
 ServiceUser su=new ServiceUser();
-    ServiceWishlist sw=new ServiceWishlist();
+ServiceWishlist sw=new ServiceWishlist();
+ServiceSousCategorie ssc=new ServiceSousCategorie();
  private MyListener myListener ; 
  private MyListenerCoutEvenement myListenerCoutEvenement ; 
  private Image image;
@@ -108,8 +124,6 @@ ServiceUser su=new ServiceUser();
  public List<String> addItem(CoutEvenement ce) {
     
     
-       // System.out.println("id cout "+ce.getCoutCtegorie());
-      // System.out.println("libelle1"+scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getCoutCtegorie()));
        
        libelleCoutCategorieOne=scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getCoutCtegorie());
   for(CoutCategorie cc:libelleCoutCategorieOne){
@@ -123,23 +137,14 @@ ServiceUser su=new ServiceUser();
  
 
  private void setChosenEvenement(DemandeEvenement evenement) {
-     Wishlist w=new Wishlist();
-     System.out.println("Event Choisi/////////////"+evenement);
-      String  nomUtilisateur=listeUtilisateur.getValue();
-   int idUtilisateur= su.getIdUserByNom(nomUtilisateur);
-   int idEvent=evenement.getId();
-          System.out.println("id Choisi/////////////////"+idUtilisateur);
-          w.setUtilisateur_id(idUtilisateur);
           
-          w.setDemande_evenement_id(idEvent);
-          sw.CreateWishlist(w);
      libelleCoutCategoriesByEvent.clear();
- // System.out.println(evenement.getLibelleEvenement());
+
   List<CoutEvenement> coutEvenements=sce.GetIdsCoutEvenementByIdDemandeEvenement(evenement.getId());
- // System.out.println("listeCoutEvenementById"+coutEvenements);
+ 
   
   for(CoutEvenement ce:coutEvenements){
-  //System.out.println("Listes id cout evenement byId demande evenement"+coutEvenements);
+  
         lbLibelleEvenementchosen.setText(evenement.getLibelleEvenement());
         lbDateFinEvenement.setText(evenement.getDate_finEvent());
         lbDateDebutEvenement.setText(evenement.getDate_debutEvent());
@@ -154,10 +159,8 @@ ServiceUser su=new ServiceUser();
       myListenerCoutEvenement=new MyListenerCoutEvenement() {
       @Override
       public void onClickListenerGetPrixByCoutEvenement(CoutEvenement ce) {
-            String  libelleCoutEvenement=lbLibelleCoutEvenement.getValue();
-             System.out.println("libelleCoutEvenement  "+libelleCoutEvenement);
+            String  libelleCoutEvenement=lbLibelleCoutEvenement.getValue();   
            int id=scc.GetIdByLibelleCoutCategorie(libelleCoutEvenement);
-           System.out.println("iddddddd"+  id);
           double prix= sce.GetPrixCoutEvenementById(id);
           String prixString=Float.toString((float) prix);
          
@@ -176,20 +179,130 @@ ServiceUser su=new ServiceUser();
         catch (FileNotFoundException ex) {
             Logger.getLogger(AddDemandeEvenementController.class.getName()).log(Level.SEVERE, null, ex);
         }
-      //  System.out.println("libelle"+addItem(ce));
         }  
+      
+    Wishlist w=new Wishlist();
+   
+      String  nomUtilisateur=listeUtilisateur.getValue();
+  // this.idUtilisateur= su.getIdUserByNom(nomUtilisateur);
+   int idEvent=evenement.getId();
+   int idCategorieEventChoisi=ssc.GetIdCategorieByIdDemandeEvenement(idEvent);
+     System.out.println("idCategorieEventChoisi "+idCategorieEventChoisi);
+    listIdCategorieByIdEvenementFromWishlistssetChosenEvenement=GetIdCategorieByIdEvenementFromWishlists(2);
+     System.out.println("listIdCategorieByIdEvenementFromWishlistssetChosenEvenement "+listIdCategorieByIdEvenementFromWishlistssetChosenEvenement);
+   
+    for(int id:listIdCategorieByIdEvenementFromWishlistssetChosenEvenement )
+    {
+       if(id ==idCategorieEventChoisi){
+           System.out.println("Categorie"+idCategorieEventChoisi+" existe in wishList "+listIdCategorieByIdEvenementFromWishlistssetChosenEvenement);
+       }
         
+       else if (id !=idCategorieEventChoisi){
+           // w.setUtilisateur_id(idUtilisateur);
+           w.setUtilisateur_id(2);
+          w.setDemande_evenement_id(idEvent);
+          // sw.CreateWishlist(w);
+            System.out.println("/////id "+id+"////////idCategorieEventChoisi"+idCategorieEventChoisi);
+            GetListEvnement();
+           
+       }
+            
+            
+        
+    }
+    
       
       //  chosenFruitCard.setStyle("-fx-background-color: #" + fruit.getColor() + ";\n" +
       //          "    -fx-background-radius: 30;");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     listeUtilisateur.setItems(FXCollections.observableArrayList(GetUtilisateur()));
-   
-     List<DemandeEvenement> evenements=de.GetEvenementDisponible();
+        
+     GetListEvnement();
+        
+      
+    }  
+    
+
+    @FXML
+    private void libelleCoutEvenement(MouseEvent event) {
+        
+       myListenerCoutEvenement.onClickListenerGetPrixByCoutEvenement(ce);
+        
+        
+        
+    }
+    
+  public List GetUtilisateur(){
+        utilisateur=su.afficherUsers();
+       for(Utilisateur u :utilisateur){
+           nomUtilisateur.add(u.getNom());
+           
+       }
+      return nomUtilisateur;
+  }
+  
+  
+  public List GetIdEvenementFromWishlists(int idUser){
+      listIdEvenementFromWishList.clear();
+       //int id=1;
+        Wishlist= sw.ReadWishlists(idUser);
+       for(Wishlist w:Wishlist){
+           int idEvent=w.getDemande_evenement_id();
+           listIdEvenementFromWishList.add(idEvent);}
+      return listIdEvenementFromWishList ;
+  }
+     
+  public List GetIdCategorieByIdEvenementFromWishlists(int idUser){
+     listidCategorieByIdEvenementFromWishlists.clear();
+        listIdEvenementFromWishListMethodGetIdCategorieByIdEvenementFromWishlists=GetIdEvenementFromWishlists(idUser);
+        for(int id:listIdEvenementFromWishListMethodGetIdCategorieByIdEvenementFromWishlists){
+               
+         listidCategorieByIdEvenementFromWishlists.add(ssc.GetIdCategorieByIdDemandeEvenement(id));     
+      }
+     return listidCategorieByIdEvenementFromWishlists;
+  }
+  
+     public List GetEvenementDisponibleByIdCategorieFromWishlists(int idUser){
+       
+         EvenementDisponibleByIdCategorie1.clear();
+          listidCategorieByIdEvenementFromWishlistsGetIdCategorieByIdEvenementFromWishlists=GetIdCategorieByIdEvenementFromWishlists(idUser);
+          
+         for(int id:listidCategorieByIdEvenementFromWishlistsGetIdCategorieByIdEvenementFromWishlists){
+             System.out.println(id);
+               
+               EvenementDisponibleByIdCategorie= de.GetEvenementDisponibleByIdCategorie(id);
+       for(DemandeEvenement de:EvenementDisponibleByIdCategorie){
+           EvenementDisponibleByIdCategorie1.add(de);
+       }      
+       }
+        
+      return EvenementDisponibleByIdCategorie1;
+  }
+     
+  public void GetListEvnement(){
+       System.out.println(" GetIdEvenementFromWishlists "+GetIdEvenementFromWishlists(1));
+      System.out.println(" GetIdCategorieByIdEvenementFromWishlists "+GetIdCategorieByIdEvenementFromWishlists(2));
+       System.out.println(" GetEvenementDisponibleByIdCategorieFromWishlists "+GetEvenementDisponibleByIdCategorieFromWishlists(2));
+       
+     // de.GetEvenementDisponibleByIdCategorie(id);
+    
+       listeUtilisateur.setItems(FXCollections.observableArrayList(GetUtilisateur()));
+    
+      
+         
+   String  nomUtilisateur=listeUtilisateur.getValue();
+   idUtilisateur= su.getIdUserByNom(nomUtilisateur);
+   //List<DemandeEvenement> evenements=GetEvenementDisponibleByIdCategorie(2);
+     
+     // evenementOutWichlist=de.GetEvenementDisponible();
+      //for(DemandeEvenement de:evenementOutWichlist){
+        //  evenements.add(de);
+      //}
+     
+     List<DemandeEvenement> evenements=GetEvenementDisponibleByIdCategorieFromWishlists(1);
          if (evenements.size() > 0) {
-            setChosenEvenement(evenements.get(0));
+           // setChosenEvenement(evenements.get(0));
           myListener = new MyListener() {
                 @Override
                 public void onClickListener(DemandeEvenement evenement) {
@@ -211,9 +324,9 @@ ServiceUser su=new ServiceUser();
               AnchorPane anchorPane = fxmlLoader.load();
          
                 EvenementController evenementController=fxmlLoader.getController();
-                  System.out.println("testtt"+evenements.get(i));
+                  //System.out.println("testtt"+evenements.get(i));
                   
-                evenementController.setData(evenements.get(i),myListener);
+              //  evenementController.setData(evenements.get(i),myListener);
                 
                 if(column==3){
                     column=0;
@@ -238,28 +351,8 @@ ServiceUser su=new ServiceUser();
         catch (IOException ex) {
             ex.printStackTrace();
               //Logger.getLogger(ListeEvenementCilentController.class.getName()).log(Level.SEVERE, null, ex);
-          } 
-        
+          }
       
-    }  
-    
-
-    @FXML
-    private void libelleCoutEvenement(MouseEvent event) {
-        
-       myListenerCoutEvenement.onClickListenerGetPrixByCoutEvenement(ce);
-        
-        
-        
-    }
-    
-  public List GetUtilisateur(){
-        utilisateur=su.afficherUsers();
-       for(Utilisateur u :utilisateur){
-           nomUtilisateur.add(u.getNom());
-           
-       }
-      return nomUtilisateur;
   }
         
         

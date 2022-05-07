@@ -16,7 +16,7 @@ public interface IServiceWishlist {
      public void CreateWishlist(Wishlist w);
     public void UpdateWishlist(Wishlist w);
     public void DeleteWishlist(int id );
-    public List<Wishlist> ReadWishlists();
+    public List<Wishlist> ReadWishlists(int id);
    
 
     

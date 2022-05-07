@@ -76,8 +76,18 @@ public class ListDemandeEvenemetAdminController implements Initializable {
     private JFXButton buttonAccepter;
     @FXML
     private JFXButton buttonRefuser;
+    @FXML
+    private Label lbDescriptionEvenement;
+    @FXML
+    private VBox CoutEvenementLayout;
+    @FXML
+    private Label lbCategorie;
+    @FXML
+    private Label lbNombreBillets;
+    @FXML
+    private Label lbPrix;
     
-    
+     
     
     
      private DemandeEvenement setChosenEvenement(DemandeEvenement evenement) {
@@ -91,6 +101,7 @@ public class ListDemandeEvenemetAdminController implements Initializable {
  LbDateDebEvent.setText(evenement.getDate_debutEvent());
  LbHeureDebEvent.setText(evenement.getHeure_debutEvent());
  LbHeureFinEvent.setText(evenement.getHeure_finEvent());
+ lbDescriptionEvenement.setText(evenement.getDescription_event());
         
    LbDateFinEvent.setText(evenement.getDate_finEvent());
   

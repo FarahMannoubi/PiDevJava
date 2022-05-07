@@ -91,6 +91,7 @@ public class ServiceDelegation implements IServiceDelegation{
         
         return delegations;
     }
+    
 
     @Override
     public Delegation FindSousDelegationByID(int id) {
@@ -109,6 +110,25 @@ public class ServiceDelegation implements IServiceDelegation{
             System.out.println(ex.getMessage());
         }
         return d; 
+    }
+    
+     
+    public String getNomDelegationByID(int id) {
+        
+        String nom="";
+        try {
+            String req = "SELECT `nom` FROM `delegation` WHERE `delegation`.`id`="+id;
+            PreparedStatement pst = cnx.prepareStatement(req);
+            
+            ResultSet Res=pst.executeQuery();
+            if(Res.next())
+            {
+              nom=(Res.getString("nom"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return nom; 
     }
     
 }

@@ -37,19 +37,24 @@ public class CoutEvenementController implements Initializable {
      List<CoutCategorie>CoutCategories=new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
     public void setData(CoutEvenement ce){
+        
         CoutCategories=scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
-         for(CoutCategorie cc:CoutCategories){
+        for(CoutCategorie cc:CoutCategories){
+            System.out.println("cc   "+cc);
              lbCategorie.setText(cc.getLibelle());
               String prixString=Float.toString((float) ce.getPrix());
-               String ndDilletsString=Integer.toString( ce.getNbBillet());
-             lbNombreBillets.setText(ndDilletsString);
+            String ndDilletsString=Integer.toString( ce.getNbBillet());
+            lbNombreBillets.setText(ndDilletsString);
              lbPrix.setText(prixString);
          }
+         String ndDilletsString=Integer.toString( ce.getNbBillet());
+            lbNombreBillets.setText(ndDilletsString);
         System.out.println("testGit");
-        //lbCategorie
+       
     }
     
 }

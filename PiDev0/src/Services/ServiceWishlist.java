@@ -54,13 +54,13 @@ public class ServiceWishlist implements IServiceWishlist{
     }
 
     @Override
-    public List<Wishlist> ReadWishlists() {
+    public List<Wishlist> ReadWishlists(int id) {
       
 ArrayList<Wishlist> Wishlists = new ArrayList();
         
         try {
             Statement st = cnx.createStatement();
-            String req = "SELECT `id`, `utilisateur_id`, `demande_evenement_id` FROM `wishlist`";
+            String req = "SELECT `id`, `utilisateur_id`, `demande_evenement_id` FROM `wishlist`WHERE `wishlist`.`utilisateur_id`="+id;
             ResultSet rs = st.executeQuery(req);
             
             while (rs.next()) {                
