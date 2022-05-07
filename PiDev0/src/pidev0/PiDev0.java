@@ -5,6 +5,7 @@
  */
 package pidev0;
 
+import Controller.WeatherApi;
 import Models.Avis;
 import Models.Categorie;
 import Models.CoutEvenement;
@@ -25,6 +26,7 @@ import Services.ServiceReclamation;
 import Services.ServiceReservation;
 import Services.ServiceSousCategorie;
 import Services.ServiceUser;
+import Services.ServiceWishlist;
 import java.sql.SQLException;
 import java.util.Date;
 import java.text.ParseException;
@@ -48,8 +50,8 @@ private List<CoutEvenement> coutEvenements=new ArrayList<>();
      * @param args the command line arguments
      */
 
-    public static void main(String[] args) throws SQLException {
-        
+    public static void main(String[] args) throws SQLException, Exception {
+        /*
        //////////////////////////////////////CRUD DemandeEvenement //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // TODO code application logic here
@@ -78,7 +80,7 @@ DemandeEvenement de =  new DemandeEvenement(3, 1,format.format(dateDemande)," ",
         ,format.format(dateDebutEvenement),format.format(dateFinEvenement), "00:00:00","00:00:00","film disney",121
         , "Encanto: la fantastique famille Madrigal","animation-enfants-evenements.jpg");
 sde.addDemandeEvenement(de);
-        System.out.println("lllllll"+sde.idDemandeEvenementByLibelleDemandeEvenement("Encanto: la fantastique famille Madrigal"));
+       // System.out.println("lllllll"+sde.idDemandeEvenementByLibelleDemandeEvenement("Encanto: la fantastique famille Madrigal"));
 List<CoutEvenement> coutEvenements=sce.GetIdsCoutEvenementByIdDemandeEvenement(0);
 
 ServiceDestination sd=new ServiceDestination();
@@ -89,8 +91,22 @@ String nom="fgff";
           System.out.println(scc.GetLibelleCoutCategorie());
           double prix =sce.GetPrixCoutEvenementById(22);
            String prixString=Float.toString((float) prix);
-        System.out.println("tttttttt"+prixString);
+           ServiceWishlist sw=new ServiceWishlist();
+           System.out.println("listes Event ByIdUser "+sw.ReadWishlists(1));
+           */
+ 
+      String dateDemande = ("2022-05-01");
       
+           WeatherApi wp=new WeatherApi();
+           String ville="Nabeul";
+           wp.call_me(ville,dateDemande);
+       // System.out.println("tttttttt"+prixString);
+    //  ServiceUser su=new ServiceUser();
+    //   // System.out.println("ListesUser"+su.afficherUsers());
+     //   ServiceSousCategorie ssc=new ServiceSousCategorie();
+     //    System.out.println(""+ssc.GetSousCategorieByIdDemandeEvenement(2));
+     //    System.out.println("SousCategorieByIdDemandeEvenement "+ssc.GetSousCategorieByIdDemandeEvenement(2));
+     //  System.out.println( "testtttttt"+sde.GetEvenementDisponibleByIdCategorie(1));
     }
 }
     

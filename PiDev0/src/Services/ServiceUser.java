@@ -59,7 +59,7 @@ PreparedStatement ps = cnx.prepareStatement(Req);
              String req = "SELECT * FROM utilisateur";
             ResultSet rs = st.executeQuery(req);
               while (rs.next()) {  
-                   user.add(new Utilisateur(rs.getInt(1),rs.getString("login"), rs.getString("password"), rs.getString("nom"),rs.getString("prenom"),rs.getString("date_naissance"),rs.getString("email"),rs.getInt(7),rs.getString("Image")));
+                   user.add(new Utilisateur(rs.getInt(1),rs.getString("login"), rs.getString("password"), rs.getString("nom"),rs.getString("prenom"),rs.getString("date_naissance"),rs.getString("email"),rs.getInt(8),rs.getString("Image")));
                                 }
               } catch (SQLException ex) {
           ex.printStackTrace();
@@ -146,6 +146,27 @@ PreparedStatement ps = cnx.prepareStatement(Req);
         
         
         return nom;
+    }
+     public int getIdUserByNom(String nom){
+       // String nom="";
+       int id=0;
+          String query = "SELECT `id` FROM utilisateur where `nom`='"+nom+"'";
+        
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()) {                
+                
+                 id=rs.getInt("id");
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        return id;
     }
     
 }

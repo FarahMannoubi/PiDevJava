@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="872.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.EvenementDetailController">
+   <children>
+      <ImageView fx:id="imageEvenement" fitHeight="321.0" fitWidth="423.0" layoutX="574.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/250535279_3006545622937314_6632663438308148792_n.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="31.0" layoutY="116.0" prefHeight="31.0" prefWidth="79.0" text="Details">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDateDebutEvenement" layoutX="159.0" layoutY="182.0" prefHeight="21.0" prefWidth="250.0" text="07/05/2022" />
+      <Separator layoutX="24.0" layoutY="275.0" prefHeight="9.0" prefWidth="423.0" />
+      <Label fx:id="lbNomDestination" layoutX="93.0" layoutY="27.0" prefHeight="31.0" prefWidth="132.0" text="Destination">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbVille" layoutX="116.0" layoutY="65.0" prefHeight="31.0" prefWidth="45.0" text="Ville">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="177.0" prefHeight="31.0" prefWidth="79.0" text="Start:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="29.0" layoutY="154.0" prefHeight="9.0" prefWidth="412.0" />
+      <Label layoutX="31.0" layoutY="229.0" prefHeight="31.0" prefWidth="79.0" text="End:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDateFinEvenement" layoutX="159.0" layoutY="234.0" prefHeight="21.0" prefWidth="250.0" text="12/05/2022" />
+      <ListView fx:id="listBilles" layoutX="132.0" layoutY="412.0" prefHeight="237.0" prefWidth="423.0" />
+      <Label layoutX="22.0" layoutY="358.0" prefHeight="31.0" prefWidth="132.0" text="Billes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="127.0" layoutY="208.0" prefHeight="9.0" prefWidth="216.0" />
+      <Label layoutX="31.0" layoutY="295.0" prefHeight="31.0" prefWidth="79.0" text="Catégorie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbCategorie" layoutX="152.0" layoutY="300.0" prefHeight="21.0" prefWidth="250.0" text="Culture" />
+      <Separator layoutX="99.0" layoutY="62.0" prefHeight="3.0" prefWidth="79.0" />
+      <Separator layoutX="71.0" layoutY="677.0" prefHeight="1.0" prefWidth="835.0" />
+      <Label layoutX="14.0" layoutY="680.0" prefHeight="31.0" prefWidth="132.0" text="Avis">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listAvis" layoutX="138.0" layoutY="715.0" prefHeight="143.0" prefWidth="726.0" />
+      <Button fx:id="iconDestination" layoutX="39.0" layoutY="42.0" mnemonicParsing="false" onMousePressed="#click" prefHeight="20.0" prefWidth="20.0" styleClass="transparent" stylesheets="@style.css" />
+      <ImageView fitHeight="68.0" fitWidth="58.0" layoutX="30.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/icone-de-localisation-noire.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbEvent" layoutX="606.0" layoutY="16.0" prefHeight="44.0" prefWidth="314.0" text="Label">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
