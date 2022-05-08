@@ -108,7 +108,7 @@ public class ListDemandeEvenemetAdminController implements Initializable {
         
        FileInputStream inputStream;
         try  {
-            inputStream = new FileInputStream("C:/Users/manou/OneDrive/Desktop/PIDEV_CACT/public/upload/image/"+evenement.getImage());
+            inputStream = new FileInputStream("C:/Users/dell/Desktop/PIDEV_CACT/PIDEV_CACT/public/upload/imageJava/"+evenement.getImage());
        
              Image image= new Image(inputStream);
              

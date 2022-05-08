@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.MediaController">
+   <children>
+      <Label layoutX="32.0" layoutY="52.0" text="Image" textFill="#790f0f" />
+      <Label layoutX="32.0" layoutY="132.0" text="Video" textFill="#790f0f" />
+      <Label layoutX="34.0" layoutY="213.0" text="Produit" textFill="#790f0f" />
+      <TextField fx:id="imageTF" layoutX="134.0" layoutY="47.0" promptText="insérer une image" />
+      <TextField fx:id="videoTF" layoutX="134.0" layoutY="127.0" promptText="inserer un video" />
+      <TextField fx:id="produitTF" layoutX="134.0" layoutY="208.0" promptText="inserer produit" />
+      <Button fx:id="add1" layoutX="40.0" layoutY="310.0" mnemonicParsing="false" onAction="#Add" text="Ajouter" textFill="#790f0f" />
+      <Button fx:id="show2" layoutX="486.0" layoutY="309.0" mnemonicParsing="false" onAction="#Show" text="Afficher" textFill="#790f0f" />
+      <ListView fx:id="mediaview" layoutX="358.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="delete" layoutX="269.0" layoutY="294.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" textFill="#790f0f" />
+      <Button fx:id="update" layoutX="275.0" layoutY="340.0" mnemonicParsing="false" onAction="#Update" text="Modifier" textFill="#790f0f" />
+   </children>
+</AnchorPane>

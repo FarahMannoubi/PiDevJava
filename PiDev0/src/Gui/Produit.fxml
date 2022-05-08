@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ProduitController">
+   <children>
+      <Label fx:id="show" layoutX="26.0" layoutY="111.0" text="Description" textFill="#790f0f" />
+      <Label layoutX="26.0" layoutY="198.0" text="Avis" textFill="#790f0f" />
+      <TextField fx:id="descriptionTF" layoutX="123.0" layoutY="106.0" promptText="Ajouter description" />
+      <TextField fx:id="avisTF" layoutX="123.0" layoutY="193.0" promptText="Insérer avis" />
+      <Button fx:id="add" layoutX="30.0" layoutY="272.0" mnemonicParsing="false" onAction="#Add" text="Ajouter" textFill="#790f0f" />
+      <Button fx:id="showp" layoutX="493.0" layoutY="288.0" mnemonicParsing="false" onAction="#Show" prefHeight="31.0" prefWidth="72.0" text="Afficher" textFill="#790f0f" />
+      <ListView fx:id="prodview" layoutX="341.0" layoutY="54.0" prefHeight="200.0" prefWidth="241.0" />
+      <Button fx:id="delete" layoutX="297.0" layoutY="288.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" textFill="#790f0f" />
+      <Button fx:id="update" layoutX="303.0" layoutY="332.0" mnemonicParsing="false" onAction="#Update" text="Modifier" textFill="#790f0f" />
+   </children>
+</AnchorPane>

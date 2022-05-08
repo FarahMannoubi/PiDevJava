@@ -7,16 +7,19 @@ package Interfaces;
 
 import Models.Categorie;
 import Models.Produit;
+import java.util.List;
 
 /**
  *
  * @author dell
  */
 public interface IServiceProduit {
-    
     public void CreateProduit(Produit p);
     public void UpdateProduit(Produit p);
-    public void DeleteProduit(int id );
+    public void DeleteProduit(Produit P );
+
+    //select all
+    public List<Produit> fetchAllProduit();
 
     
 }
