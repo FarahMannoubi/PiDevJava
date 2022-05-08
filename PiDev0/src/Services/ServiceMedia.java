@@ -5,11 +5,11 @@
  */
 package Services;
 
-import Interfaces.IServiceProduit;
+import Interfaces.IServiceMedia;
 import Models.Avis;
+import Models.Media;
 import Models.Produit;
 import Utils.Connexion;
-import static java.awt.PageAttributes.MediaType.A;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,17 +22,18 @@ import java.util.List;
  *
  * @author dell
  */
-public class ServiceProduit implements IServiceProduit{
+public class ServiceMedia implements IServiceMedia{
     
-  Connexion instance = Connexion.getInstance();
+    Connexion instance = Connexion.getInstance();
     Connection cnx = instance.getCnx();
-    
-     public void CreateProduit(Produit P) {
+
+     public void CreateMedia(Media M) {
         try {
-         String req = "INSERT INTO `produit`(`id`, `avis_id`, `description`, `nom`, `libelle`, `prix`) VALUES (null,'"+P.getAvis_id()+"','"+P.getDescription()+"','"+P.getNom()+"','"+P.getLibelle()+"','"+P.getPrix()+"')";
+         String req = "INSERT INTO `media`(`produit_id`, `image`, `video`) VALUES ('"+M.getProduit_id()+"', '"+M.getImage()+"','"+M.getVideo()+"')";
      Statement st = cnx.createStatement();
-      st.executeUpdate(req);
-            System.out.println("Produit ajoutée avec succes.");
+     
+        st.executeUpdate(req);
+            System.out.println("Media ajoutée avec succes.");
             
         } catch (SQLException ex) {
             
@@ -40,39 +41,44 @@ public class ServiceProduit implements IServiceProduit{
         }
     }
      
-     public ArrayList<Produit> fetchAllProduit() {
-         ArrayList<Produit> produits = new ArrayList();
+    /**
+     *
+     * @return
+     */
+    @Override
+      public ArrayList<Media> fetchAllMedia(){
+         ArrayList<Media> medias = new ArrayList();
           try {
             Statement st = cnx.createStatement();        
             
-           String req = "SELECT * FROM produit";
+           String req = "SELECT * FROM media";
            
             ResultSet rs = st.executeQuery(req);
             
               while (rs.next()) {  
      
-     produits.add(new Produit(rs.getInt(1), rs.getInt("avis_id"), rs.getString("description"), rs.getString("nom"), rs.getString("libelle"), rs.getInt("prix")));
+     medias.add(new Media(rs.getInt(1), rs.getInt("produit_id"), rs.getString("image"), rs.getString("video")));
                                 }
               } catch (SQLException ex) {
           ex.printStackTrace();
         }
         
-        return produits;
+        return medias;
     }
-     
-     //update
-    public void UpdateProduit(Produit P) {
+    
+      //update
+    public void UpdateMedia(Media M) {
         
        try {
            
-                   String  req="UPDATE produit SET avis_id='"+P.getAvis_id()+"',description='"+P.getDescription()+"',nom='"+P.getNom()+"',libelle='"+P.getLibelle()+"',prix='"+P.getPrix()+"'WHERE `id`="+P.getId();
+                   String  req="UPDATE media SET produit_id='"+M.getProduit_id()+"',image='"+M.getImage()+"',video='"+M.getVideo()+"'WHERE `id`="+M.getId();
                                    
                   
                    PreparedStatement pstm = cnx.prepareStatement(req);
                    
                   
                    pstm.executeUpdate(req);
-                   System.out.println("Produit modifiée avec succes.");
+                   System.out.println("Media modifiée avec succes.");
                }
            
            catch (SQLException ex) {
@@ -80,22 +86,21 @@ public class ServiceProduit implements IServiceProduit{
            }
        }
 
-     //Delete
     
-    @Override
-    public void DeleteProduit(Produit P) {
+    //Delete
+    
+    public void DeleteMedia(Media M) {
 try {
-          String query ="DELETE FROM produit WHERE id="+P.getId();
+          String query ="DELETE FROM media WHERE id="+M.getId();
          Statement st = cnx.createStatement();
          st.executeUpdate(query);
-          System.out.println(" Produit supprimée avec success");
+          System.out.println(" Media supprimée avec success");
       }
       catch(SQLException e){
         System.out.println(e.getMessage());}    }
-   
     
-  public int getId() throws SQLException {
-       String sql="SELECT id FROM `produit ";
+public int getId() throws SQLException {
+       String sql="SELECT id FROM `media`";
             Statement statement = cnx.prepareStatement(sql);
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
@@ -103,6 +108,10 @@ try {
                 return id;
               }
         return 0;}   
-    
-    
 }
+
+
+
+    
+
+

@@ -290,7 +290,7 @@ public class AddDemandeEvenementController implements Initializable {
          nameImage = RandomString.getAlphaNumericString(20)+".png";
         de.setImage(nameImage);
         Image img3= imageVue.getImage();
-   File file = new File("C:/Users/manou/OneDrive/Desktop/PIDEV_CACT/public/upload/image/"+nameImage);
+   File file = new File("C:/Users/dell/Desktop/PIDEV_CACT/PIDEV_CACT/public/upload/imageJava/"+nameImage);
   
   try {
       ImageIO.write(SwingFXUtils.fromFXImage(img3,
@@ -419,7 +419,7 @@ lbMax.setText(maxtemp_c);
 lbMin.setText(mintemp_c);
   FileInputStream inputStream;
         try  {
-            inputStream = new FileInputStream("C:/Users/manou/OneDrive/Desktop/PIDEV_CACT/public/upload/WeatherIcons/"+icon+".png");
+            inputStream = new FileInputStream("C:/Users/dell/Desktop/PIDEV_CACT/PIDEV_CACT/public/upload/WeatherIcons/"+icon+".png");
        
              Image image= new Image(inputStream);
              

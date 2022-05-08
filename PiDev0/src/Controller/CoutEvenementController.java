@@ -41,14 +41,9 @@ public class CoutEvenementController implements Initializable {
         // TODO
     }    
     public void setData(CoutEvenement ce){
-<<<<<<< HEAD
-        scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
 
 
-        System.out.println("testGit");
 
-        //lbCategorie
-=======
         
         CoutCategories=scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getId());
         for(CoutCategorie cc:CoutCategories){
@@ -62,8 +57,7 @@ public class CoutEvenementController implements Initializable {
          String ndDilletsString=Integer.toString( ce.getNbBillet());
             lbNombreBillets.setText(ndDilletsString);
         System.out.println("testGit");
-       
->>>>>>> event
+
     }
     
 }
