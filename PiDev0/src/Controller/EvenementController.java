@@ -50,43 +50,18 @@ public class EvenementController implements Initializable {
         private DemandeEvenement evenemet;
         private Parent fxml; 
         ListEvenementClient2Controller lec2c=new  ListEvenementClient2Controller();
-       // HomeController hc=new HomeController();
-       //     AnchorPane  root2;
-       
-      //  private MyListener myListener ;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //  setData(evenemet);
+     
         // TODO
     }   
-    /**
-      public void setData(DemandeEvenement evenement,MyListener myListener){
-          this.myListener=myListener;
-        this.evenemet=evenement;
-        lbEvenement.setText(evenement.getLibelleEvenement());
-         // System.out.println("Event Choisi"+evenement);
-         // System.out.println("id Choisi"+id);
-          
-         FileInputStream inputStream;
-        try  {
-            inputStream = new FileInputStream("C:/Users/manou/OneDrive/Desktop/PIDEV_CACT/public/upload/image/"+evenement.getImage());
-       
-             Image image= new Image(inputStream);
-             
-        ImageEvenement.setImage(image);
-        
-    } 
-        catch (FileNotFoundException ex) {
-            Logger.getLogger(AddDemandeEvenementController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      }
-      * **/
+
     public void setData(DemandeEvenement evenement){
-       //   this.myListener=myListener;
+
         this.evenemet=evenement;
         lbEvenement.setText(evenement.getLibelleEvenement());
-         // System.out.println("Event Choisi"+evenement);
-         // System.out.println("id Choisi"+id);
+  
           
          FileInputStream inputStream;
         try  {

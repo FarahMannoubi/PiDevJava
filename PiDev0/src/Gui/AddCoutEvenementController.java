@@ -53,7 +53,7 @@ public class AddCoutEvenementController implements Initializable {
     private JFXButton bnAddCoutEvenemet;
     @FXML
     private VBox CoutEvenementLayout;
-     
+  int idDemande=30;   
  int id =41;
 
     /**
@@ -66,6 +66,7 @@ public class AddCoutEvenementController implements Initializable {
        private   List<String>ListlibelleCoutCategories=new ArrayList<>();
        List <CoutEvenement> coutEvenement=new ArrayList<>();
        private CoutEvenement ce=new CoutEvenement();
+       private DemandeEvenement de;
     @FXML
     private ListView<CoutEvenement> listView;
     @FXML
@@ -81,6 +82,10 @@ public class AddCoutEvenementController implements Initializable {
         listeLibelleCoutCategorie.setItems(FXCollections.observableArrayList( ListlibelleCoutCategories));
         // TODO
         Afficher();
+    
+    
+    
+    
     }   
    public void Afficher(){
         listView.getItems().clear();
@@ -93,7 +98,7 @@ public class AddCoutEvenementController implements Initializable {
                     setText(null); 
                 }else{
                     CoutCategories=scc.GetLibelleCoutCategorieByIdCoutCategorie(ce.getCoutCtegorie()); 
-                    System.out.println("CoutCategories "+CoutCategories);
+                   
                     for(CoutCategorie cc:CoutCategories){
                     // set the width's
                     setMinWidth(param.getWidth());
@@ -139,19 +144,17 @@ public class AddCoutEvenementController implements Initializable {
 
     @FXML
     private void addCoutEvenemet(ActionEvent event) {
-        
+      
           int idCoutCategorie=scc.GetIdByLibelleCoutCategorie(listeLibelleCoutCategorie.getValue());
         
         ce.setCoutCtegorie(idCoutCategorie);
     
-        ce.setDemendeEvenement(id);
+       ce.setDemendeEvenement(id);
     
         ce.setNbBillet(Integer.parseInt(tfNbBillet.getText()));
         ce.setPrix(Integer.parseInt(tfPrix.getText()));
            
-                System.out.println(idCoutCategorie);
-                 System.out.println("  "+this.id);
-                System.out.println("  "+ce);
+               
          sce.addCoutEvenement(ce);
          getListCoutEvenementById(id);
          Afficher();
@@ -162,38 +165,22 @@ public class AddCoutEvenementController implements Initializable {
     public void getListCoutEvenementById(int id){
         coutEvenement.clear();
       coutEvenement=sce.GetIdsCoutEvenementByIdDemandeEvenement(id);
-        System.out.println("  "+coutEvenement);
-        /**
-         * for(int i=0;i<coutEvenement.size();i++){
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        
-             fxmlLoader.setLocation(getClass().getResource("CoutEvenement.fxml"));
-                try {
-                 HBox hBox=fxmlLoader.load();
-                  CoutEvenementController coutEvenementController=fxmlLoader.getController();
-                 coutEvenementController.setData(coutEvenement.get(i));
-           
-             
-             CoutEvenementLayout.getChildren().add(hBox);
-             
-             } catch (IOException ex) {
-                  ex.printStackTrace();
-             }
-     
-        }
-        **/
+ 
         
     }
     
     
     
     public void AjouterCoutEvenement(DemandeEvenement de ){
-        System.out.println("Demande Evenement "+de);  
+        
+        this.de=de;
+         
      id =de.getId();  
-        System.out.println("id "+id);
+      
    
         
     }
+    
     
     
 }

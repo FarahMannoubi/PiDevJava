@@ -89,14 +89,14 @@ public class ListEvenementClient2Controller implements Initializable {
            int row=1;
            try{
     for(int i=0;i<evenements.size();i++){
-         //   System.out.println("evenement "+evenements.get(i));
+  
                 FXMLLoader fxmlLoader = new FXMLLoader();
     
              fxmlLoader.setLocation(getClass().getResource("Evenement.fxml"));
      
              AnchorPane eventBox = fxmlLoader.load();
              EvenementController evenementController=fxmlLoader.getController();
-             //    System.out.println("evenements "+evenements.get(i));
+            
              evenementController.setData(evenements.get(i));
           
            

@@ -17,6 +17,7 @@ import Services.ServiceDemandeEvenement;
 import Services.ServiceDestination;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -38,6 +40,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -79,6 +82,8 @@ public class EvenementDetailController implements Initializable {
          private   List<String>ListlibelleCoutCategories=new ArrayList<>();
     @FXML
     private Label lbEvent;
+    @FXML
+    private VBox coutEvenementLayout;
       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -106,6 +111,32 @@ public void setChosenEvenement(DemandeEvenement evenement){
         catch (FileNotFoundException ex) {
             Logger.getLogger(AddDemandeEvenementController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////
+        
+      /**  List<CoutEvenement>coutEvenement=sce.GetIdsCoutEvenementByIdDemandeEvenement(evenement.getId());
+        
+            for(int i=0;i<coutEvenement.size();i++){
+          
+            FXMLLoader fxmlLoader = new FXMLLoader();
+        
+             fxmlLoader.setLocation(getClass().getResource("/Gui/CoutEventEvenemetDetail.fxml"));
+     
+             try {
+                 HBox hBox=fxmlLoader.load();
+                  CoutEventEvenemetDetailController coutEvenementDetailController=fxmlLoader.getController();
+                  coutEvenementDetailController.setData(coutEvenement.get(i));
+           
+             
+           coutEvenementLayout.getChildren().add(hBox);
+             
+             } catch (IOException ex) {
+                  ex.printStackTrace();
+             }
+    }
+        
+        
+       **/ 
+        
         ///////////////////////////////////////////////////////////////////////////////////////
         
 CoutCategories=scc.ReadCoutCategories();
