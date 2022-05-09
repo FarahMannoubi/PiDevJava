@@ -138,16 +138,24 @@ try {
          
         return souscategories;
     }
-  public int GetIdCategorieByIdDemandeEvenement(int id){
+    
+    
+    
+    
+    
+    public int GetIdCategorieByIdDemandeEvenement(int id){
          // ArrayList<Integer> souscategories = new ArrayList();
          int idSousCategorieByIdDemandeEvenement=0;
             try {
             Statement st = cnx.createStatement(); 
             
-           String req="SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, `sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`,"
-                   + " `sous_categorie`.`description` FROM `sous_categorie`,`categorie`,`destination`,`demande_evenement`,`wishlist` WHERE" +
-"`demande_evenement`.`id`="+id+" AND `demande_evenement`.`destination_id`=`destination`.`id`and \n" +
-" `destination`.`souscategorie_id`=`sous_categorie`.`id` and `sous_categorie`.`categorie_id`=`categorie`.`id`";
+           String req="SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, "
+                   + "`sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`,"
+                   + " `sous_categorie`.`description` FROM `sous_categorie`,`categorie`,`destination`,"
+                   + "`demande_evenement`,`wishlist` WHERE" +
+                  "`demande_evenement`.`id`="+id+" AND `demande_evenement`.`destination_id`=`destination`.`id`and \n" +
+                 " `destination`.`souscategorie_id`=`sous_categorie`.`id` "
+                   + "and `sous_categorie`.`categorie_id`=`categorie`.`id`";
             
             
              
@@ -155,6 +163,39 @@ try {
               ResultSet rs = st.executeQuery(req);
               while (rs.next()) {  
                  idSousCategorieByIdDemandeEvenement=(rs.getInt("categorie_id"));
+                                }
+              } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+         
+        return idSousCategorieByIdDemandeEvenement;
+    }
+    
+    
+    
+    
+    
+    
+  public int GetIdSousCategorieByIdDemandeEvenement(int id){
+         // ArrayList<Integer> souscategories = new ArrayList();
+         int idSousCategorieByIdDemandeEvenement=0;
+            try {
+            Statement st = cnx.createStatement(); 
+            
+           String req="SELECT `sous_categorie`.`id`, `sous_categorie`.`categorie_id`, "
+                   + "`sous_categorie`.`couleur_evenement_id`, `sous_categorie`.`libelle`,"
+                   + " `sous_categorie`.`description` FROM `sous_categorie`,`categorie`,`destination`,"
+                   + "`demande_evenement`,`wishlist` WHERE" +
+                  "`demande_evenement`.`id`="+id+" AND `demande_evenement`.`destination_id`=`destination`.`id`and \n" +
+                 " `destination`.`souscategorie_id`=`sous_categorie`.`id` "
+                  ;
+            
+            
+             
+          
+              ResultSet rs = st.executeQuery(req);
+              while (rs.next()) {  
+                 idSousCategorieByIdDemandeEvenement=(rs.getInt("id"));
                                 }
               } catch (SQLException ex) {
           ex.printStackTrace();

@@ -124,6 +124,28 @@ String statut="Accepter";
         return demandeEvenements ;
 }
 
+public List<DemandeEvenement> GetDemandeEvenementRefuser(){ 
+String statut="Refuser";
+ ArrayList<DemandeEvenement> demandeEvenements = new ArrayList();
+        
+        try {
+            Statement st = cnx.createStatement();
+            String req = "SELECT * FROM `demande_evenement"
+ + "`WHERE `demande_evenement`.`statut`='"+statut+"'";
+            ResultSet rs = st.executeQuery(req);
+            
+            while (rs.next()) {                
+     demandeEvenements.add(new DemandeEvenement(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11), rs.getInt(12),rs.getString(13),rs.getString(14)));
+                
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return demandeEvenements ;
+}
+
 public List<DemandeEvenement> GetDemandeEvenementByIdDestination(DemandeEvenement de){ 
  ArrayList<DemandeEvenement> demandeEvenements = new ArrayList();
         
@@ -338,7 +360,7 @@ public void deleteDemandeEvenement(int id){
 
     
 
-public List<DemandeEvenement> GetEvenementDisponibleByIdCategorie(int id){ 
+public List<DemandeEvenement> GetEvenementDisponibleByIdSousCategorie(int id){ 
 String statut="Accepter";
  ArrayList<DemandeEvenement> demandeEvenements = new ArrayList();
         
@@ -362,9 +384,8 @@ String statut="Accepter";
                 + "`sous_categorie`,`categorie`,`destination`,`demande_evenement`"
           + "WHERE "
                 + "`demande_evenement`.`destination_id`=`destination`.`id`"
-          + "and `destination`.`souscategorie_id`=`sous_categorie`.`id"
-          + "` and `sous_categorie`.`categorie_id`=`categorie`.`id`"
-          + " and `categorie`.`id`="+id; 
+          + "and `destination`.`souscategorie_id`="+id
+          ; 
             ResultSet rs = st.executeQuery(req);
             
             while (rs.next()) {                

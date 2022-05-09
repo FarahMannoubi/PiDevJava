@@ -53,9 +53,9 @@ public class AddCoutEvenementController implements Initializable {
     private JFXButton bnAddCoutEvenemet;
     @FXML
     private VBox CoutEvenementLayout;
-  int idDemande=30;   
- int id =41;
-
+ // int idDemande=30;   
+ //int id =41;
+private DemandeEvenement demandeEvenement;
     /**
      * Initializes the controller class.
      */
@@ -75,13 +75,17 @@ public class AddCoutEvenementController implements Initializable {
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        int id=demandeEvenement.getId();
+  //      System.out.println("iddddd"+id);
         CoutCategories=scc.ReadCoutCategories();
         for(CoutCategorie cc:CoutCategories){
             ListlibelleCoutCategories.add(cc.getLibelle());
         }
         listeLibelleCoutCategorie.setItems(FXCollections.observableArrayList( ListlibelleCoutCategories));
-        // TODO
-        Afficher();
+       
+        //System.out.println("de  "+de.getId());        
+// TODO
+        //Afficher();
     
     
     
@@ -138,7 +142,7 @@ public class AddCoutEvenementController implements Initializable {
             
             }
         });
- listView.getItems().addAll(sce.GetIdsCoutEvenementByIdDemandeEvenement(id));
+ listView.getItems().addAll(sce.GetIdsCoutEvenementByIdDemandeEvenement(de.getId()));
                     
    }
 
@@ -149,14 +153,14 @@ public class AddCoutEvenementController implements Initializable {
         
         ce.setCoutCtegorie(idCoutCategorie);
     
-       ce.setDemendeEvenement(id);
+       ce.setDemendeEvenement(de.getId());
     
         ce.setNbBillet(Integer.parseInt(tfNbBillet.getText()));
         ce.setPrix(Integer.parseInt(tfPrix.getText()));
            
                
          sce.addCoutEvenement(ce);
-         getListCoutEvenementById(id);
+         getListCoutEvenementById(idCoutCategorie);
          Afficher();
                  
   
@@ -175,10 +179,14 @@ public class AddCoutEvenementController implements Initializable {
         
         this.de=de;
          
-     id =de.getId();  
+     //id =de.getId();  
       
    
         
+    }
+
+    public void setDemandeEvenement(DemandeEvenement demandeEvenement) {
+        this.demandeEvenement = demandeEvenement;
     }
     
     

@@ -474,17 +474,27 @@ lbMin.setText(mintemp_c);
     private void AddCoutEvenement(ActionEvent event) throws IOException {
          try {
               FXMLLoader fxmlLoader = new FXMLLoader();
-            fxml=FXMLLoader.load(getClass().getResource("/gui/AddCoutEvenement.fxml"));
-              scroll.getChildren().removeAll();
-              scroll.getChildren().setAll(fxml);
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    AddCoutEvenementController addCoutEvenementController=new AddCoutEvenementController();
+               fxmlLoader.setLocation(getClass().getResource("/gui/AddCoutEvenement.fxml"));
+           // fxml=FXMLLoader.load(getClass().getResource("/gui/AddCoutEvenement.fxml"));
+             // scroll.getChildren().removeAll();
+             // scroll.getChildren().setAll(fxml);
+               Parent root = fxmlLoader.load();
+                      Stage stage;
+                      stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                      Scene scene=new Scene(root);
+                      stage.setScene(scene);
+                      stage.show();
+                       AddCoutEvenementController addCoutEvenementController=fxmlLoader.getController();
+    //addCoutEvenementController.setDemandeEvenement(de);
    String libelle=de.getLibelleEvenement();
          int idDemandeEvenemet=sde.idDemandeEvenementByLibelleDemandeEvenement(libelle).getId();
    de.setId(idDemandeEvenemet);
        addCoutEvenementController.AjouterCoutEvenement(de);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    //AddCoutEvenementController addCoutEvenementController=new AddCoutEvenementController();
+    
    
             }
     

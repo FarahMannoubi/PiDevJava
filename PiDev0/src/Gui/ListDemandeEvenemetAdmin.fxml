@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -8,27 +9,48 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ListDemandeEvenemetAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="856.0" prefWidth="921.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ListDemandeEvenemetAdminController">
    <children>
-      <ListView fx:id="ListeDemandeEvenement" layoutX="36.0" layoutY="121.0" prefHeight="361.0" prefWidth="773.0" />
-      <Label layoutX="35.0" prefHeight="60.0" prefWidth="273.0" text="Liste des Demandes">
-         <font>
-            <Font name="Constantia" size="24.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER" layoutX="664.0" layoutY="482.0" prefHeight="49.0" prefWidth="181.0">
+      <ListView fx:id="ListeDemandeEvenement" layoutX="34.0" layoutY="191.0" prefHeight="584.0" prefWidth="855.0" style="-fx-background-color: #ffffff;" />
+      <HBox alignment="CENTER" layoutX="516.0" layoutY="72.0" prefHeight="39.0" prefWidth="373.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="19.0" />
-            <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="19.0" />
-            <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="19.0" />
+            <Button mnemonicParsing="false" onAction="#getListDemandeEnAttante" prefHeight="39.0" prefWidth="129.0" style="-fx-background-color: light;" text="En attente">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+            <Button mnemonicParsing="false" onAction="#getListDemandeAccepter" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: light;" text="Accepter">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+            <Button mnemonicParsing="false" onAction="#getListDemandReffuser" prefHeight="31.0" prefWidth="114.0" style="-fx-background-color: light;" text="Refuser">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </HBox>
-      <Separator layoutX="26.0" layoutY="71.0" prefHeight="0.0" prefWidth="794.0" />
-      <Label layoutX="154.0" layoutY="88.0" text="Date Demande" />
-      <Label layoutX="295.0" layoutY="88.0" text="Utilisateur" />
-      <Label layoutX="395.0" layoutY="88.0" text="Destination" />
-      <Label layoutX="524.0" layoutY="88.0" text="Evénement" />
-      <Label layoutX="642.0" layoutY="88.0" text="Date Debut Evénement" />
-      <Label layoutX="61.0" layoutY="88.0" text="Statut" />
+      <Separator layoutX="15.0" layoutY="127.0" prefHeight="0.0" prefWidth="872.0" />
+      <Label layoutX="151.0" layoutY="149.0" text="Date Demande" />
+      <Label layoutX="284.0" layoutY="149.0" text="Utilisateur" />
+      <Label layoutX="413.0" layoutY="149.0" text="Destination" />
+      <Label layoutX="544.0" layoutY="149.0" text="Evénement" />
+      <Label layoutX="687.0" layoutY="146.0" text="Date Debut Evénement">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="61.0" layoutY="149.0" text="Statut" />
+      <Button layoutX="769.0" layoutY="793.0" mnemonicParsing="false" onAction="#AfficherDemendeEvenement" prefHeight="49.0" prefWidth="131.0" style="-fx-background-color: #ede5e4;" stylesheets="@style.css" text="Edit">
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </Button>
+      <Separator layoutX="15.0" layoutY="181.0" prefHeight="0.0" prefWidth="872.0" />
+      <Button layoutX="7.0" layoutY="14.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: light;" text="Liste des Demandes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

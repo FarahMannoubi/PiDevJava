@@ -7,20 +7,22 @@
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="scroll" onContextMenuRequested="#DateCanged" prefHeight="780.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddDemandeEvenementController">
+<AnchorPane id="AnchorPane" fx:id="scroll" onContextMenuRequested="#DateCanged" prefHeight="780.0" prefWidth="918.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddDemandeEvenementController">
    <children>
       <Pane layoutX="-1.0" layoutY="774.0" prefHeight="39.0" prefWidth="1029.0" />
-      <JFXButton layoutX="877.0" layoutY="733.0" onAction="#AjouterDemandeEvenement" prefHeight="53.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@style.css" text="Valider" />
-      <HBox layoutX="26.0" layoutY="187.0" prefHeight="100.0" prefWidth="834.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
+      <JFXButton layoutX="726.0" layoutY="733.0" onAction="#AjouterDemandeEvenement" prefHeight="53.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@style.css" text="Valider" />
+      <HBox layoutX="27.0" layoutY="146.0" prefHeight="101.0" prefWidth="729.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
          <children>
-            <Pane prefHeight="100.0" prefWidth="48.0" />
-            <Label prefHeight="94.0" prefWidth="76.0" text="Destination" />
+            <Pane prefHeight="117.0" prefWidth="12.0" />
+            <Label prefHeight="94.0" prefWidth="93.0" text="Destination" />
             <Pane prefHeight="100.0" prefWidth="35.0" />
             <VBox prefHeight="103.0" prefWidth="199.0">
                <children>
@@ -28,20 +30,20 @@
                   <JFXComboBox fx:id="listeDestination" prefHeight="27.0" prefWidth="182.0" styleClass="comboBox" stylesheets="@style.css" />
                </children>
             </VBox>
-            <Pane prefHeight="100.0" prefWidth="80.0" />
+            <Pane prefHeight="117.0" prefWidth="30.0" />
             <Label fx:id="lbUtilisateur" prefHeight="98.0" prefWidth="144.0" text="Description Demande" />
             <Pane prefHeight="100.0" prefWidth="20.0" />
-            <JFXTextField fx:id="tfDecriptionDemande" prefHeight="81.0" prefWidth="196.0" />
+            <JFXTextField fx:id="tfDecriptionDemande" prefHeight="93.0" prefWidth="198.0" />
          </children>
       </HBox>
-      <HBox layoutX="26.0" layoutY="315.0" prefHeight="163.0" prefWidth="951.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
+      <HBox layoutX="27.0" layoutY="325.0" prefHeight="163.0" prefWidth="774.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
          <children>
-            <VBox prefHeight="117.0" prefWidth="150.0">
+            <VBox prefHeight="163.0" prefWidth="187.0">
                <children>
                   <Pane prefHeight="19.0" prefWidth="150.0" />
                   <Label prefHeight="21.0" prefWidth="107.0" text="      Evènement" />
-                  <Pane prefHeight="57.0" prefWidth="255.0" />
-                  <Label text="     Capacite" />
+                  <Pane prefHeight="44.0" prefWidth="150.0" />
+                  <Label prefHeight="62.0" prefWidth="153.0" text="Description Evènement" />
                </children>
             </VBox>
             <VBox prefHeight="117.0" prefWidth="207.0">
@@ -49,46 +51,32 @@
                   <Pane prefHeight="16.0" prefWidth="207.0" />
                   <JFXTextField fx:id="tfLibelleEvenemet" prefHeight="31.0" prefWidth="175.0" />
                   <Pane prefHeight="47.0" prefWidth="207.0" />
-                  <JFXTextField fx:id="tfCapacite" />
+                  <JFXTextField fx:id="tfDiscriptionEvenement" prefHeight="31.0" prefWidth="182.0" stylesheets="@style.css" />
                </children>
             </VBox>
-            <VBox prefHeight="163.0" prefWidth="208.0">
-               <children>
-                  <HBox prefHeight="117.0" prefWidth="208.0">
-                     <children>
-                        <Pane prefHeight="117.0" prefWidth="34.0" />
-                        <Label prefHeight="62.0" prefWidth="153.0" text="Description Evènement" />
-                        <Pane prefHeight="117.0" prefWidth="7.0" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
+            <VBox prefHeight="163.0" prefWidth="164.0" />
             <VBox prefHeight="117.0" prefWidth="148.0">
                <children>
-                  <JFXTextField fx:id="tfDiscriptionEvenement" prefHeight="31.0" prefWidth="182.0" stylesheets="@style.css" />
-                  <Pane prefHeight="74.0" prefWidth="148.0" />
-                  <HBox prefHeight="44.0" prefWidth="148.0">
+                  <Pane prefHeight="74.0" prefWidth="148.0">
                      <children>
-                        <Pane prefHeight="44.0" prefWidth="54.0" />
-                        <FontAwesomeIconView glyphName="UPLOAD" onMouseClicked="#addImage" size="30" wrappingWidth="30.00001323223114" />
-                     </children>
-                  </HBox>
+                        <Label layoutX="35.0" layoutY="27.0" text="Capacite" />
+                     </children></Pane>
+                  <JFXTextField fx:id="tfCapacite" prefHeight="31.0" prefWidth="128.0" />
                </children>
             </VBox>
-            <HBox prefHeight="163.0" prefWidth="219.0">
+            <HBox prefHeight="163.0" prefWidth="28.0">
                <children>
                   <Pane prefHeight="163.0" prefWidth="33.0" />
-                  <VBox prefHeight="163.0" prefWidth="216.0">
+                  <VBox prefHeight="163.0" prefWidth="50.0">
                      <children>
                         <Pane prefHeight="18.0" prefWidth="201.0" />
-                        <ImageView fx:id="imageVue" fitHeight="137.0" fitWidth="192.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </HBox>
-      <HBox layoutX="26.0" layoutY="524.0" prefHeight="154.0" prefWidth="951.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
+      <HBox layoutX="27.0" layoutY="550.0" prefHeight="154.0" prefWidth="951.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
          <children>
             <VBox prefHeight="154.0" prefWidth="210.0">
                <children>
@@ -124,14 +112,34 @@
             </VBox>
          </children>
       </HBox>
-      <AnchorPane id="AnchorPane" layoutX="839.0" layoutY="15.0" prefHeight="154.0" prefWidth="182.0" styleClass="chosen-fruit-card" stylesheets="@style.css">
+      <AnchorPane id="AnchorPane" layoutX="658.0" prefHeight="57.0" prefWidth="339.0" style="-fx-background-color: #ffffff;" stylesheets="@style.css">
          <children>
-            <Label fx:id="lbDate" layoutX="86.0" layoutY="4.0" text="date" />
-            <ImageView fx:id="imgVIcon" fitHeight="73.0" fitWidth="132.0" layoutX="42.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lbMax" layoutX="69.0" layoutY="105.0" text="Max" />
-            <Label fx:id="lbMin" layoutX="69.0" layoutY="137.0" text="Min" />
+            <Label fx:id="lbDate" layoutX="21.0" layoutY="25.0" text="date" />
+            <ImageView fx:id="imgVIcon" fitHeight="57.0" fitWidth="107.0" layoutX="101.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbMax" layoutX="228.0" layoutY="25.0" text="Max" />
+            <Label fx:id="lbMin" layoutX="302.0" layoutY="25.0" text="Min" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="709.0" layoutY="744.0" onAction="#AddCoutEvenement" text="addCoutEvenement" />
+      <JFXButton layoutX="861.0" layoutY="744.0" onAction="#AddCoutEvenement" text="addCoutEvenement" />
+      <Separator layoutX="16.0" layoutY="66.0" prefHeight="11.0" prefWidth="972.0" />
+      <ImageView fx:id="imageVue" fitHeight="243.0" fitWidth="192.0" layoutX="800.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIconView glyphName="UPLOAD" layoutX="906.0" layoutY="426.0" onMouseClicked="#addImage" size="30" wrappingWidth="30.00001323223114" />
+      <Separator layoutX="19.0" layoutY="259.0" prefHeight="11.0" prefWidth="746.0" />
+      <Label layoutX="19.0" layoutY="95.0" prefHeight="40.0" prefWidth="299.0" text="Données Demande :">
+         <font>
+            <Font name="Constantia" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="270.0" prefHeight="40.0" prefWidth="299.0" text="Données Evénement :">
+         <font>
+            <Font name="Constantia" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="501.0" prefHeight="40.0" prefWidth="299.0" text="Date Evénement :">
+         <font>
+            <Font name="Constantia" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="16.0" layoutY="704.0" prefHeight="11.0" prefWidth="972.0" />
    </children>
 </AnchorPane>

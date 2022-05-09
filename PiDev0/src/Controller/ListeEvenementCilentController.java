@@ -271,7 +271,7 @@ ServiceSousCategorie ssc=new ServiceSousCategorie();
          for(int id:listidCategorieByIdEvenementFromWishlistsGetIdCategorieByIdEvenementFromWishlists){
              System.out.println(id);
                
-               EvenementDisponibleByIdCategorie= de.GetEvenementDisponibleByIdCategorie(id);
+               EvenementDisponibleByIdCategorie= de.GetEvenementDisponibleByIdSousCategorie(id);
        for(DemandeEvenement de:EvenementDisponibleByIdCategorie){
            EvenementDisponibleByIdCategorie1.add(de);
        }      
