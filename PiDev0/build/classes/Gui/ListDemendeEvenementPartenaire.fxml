@@ -5,37 +5,61 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="595.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListDemendeEvenementPartenaireController">
+<AnchorPane id="AnchorPane" fx:id="ParentListDemendeEvenementPartenaire" prefHeight="795.0" prefWidth="1047.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListDemendeEvenementPartenaireController">
    <children>
-      <Label layoutX="23.0" layoutY="15.0" prefHeight="60.0" prefWidth="344.0" text="Liste des Demandes Evénement">
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="60.0" prefWidth="344.0" text="Liste des Demandes Evénement">
          <font>
             <Font name="Constantia" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="9.0" layoutY="116.0" prefHeight="276.0" prefWidth="850.0" />
-      <Label alignment="CENTER" layoutX="34.0" layoutY="94.0" prefHeight="21.0" prefWidth="66.0" text="Statut" />
-      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="109.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Date Demande" />
-      <Separator layoutX="6.0" layoutY="87.0" prefHeight="2.0" prefWidth="870.0" />
-      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="241.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Destination" />
-      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="507.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Evénement" />
-      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="363.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Sous-Catégorie" />
-      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="670.0" layoutY="94.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="166.0" scaleShape="false" text="Date Dèbut Evénement" />
-      <Button layoutX="670.0" layoutY="398.0" mnemonicParsing="false" onAction="#modifierDemande" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #5D6D7E;" text="Modifier" textFill="#fffafa">
+      <ListView fx:id="listView" layoutX="44.0" layoutY="229.0" prefHeight="462.0" prefWidth="960.0" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="199.0" prefHeight="21.0" prefWidth="66.0" text="Statut" />
+      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="161.0" layoutY="199.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Date Demande" />
+      <Separator layoutX="44.0" layoutY="175.0" prefHeight="3.0" prefWidth="960.0" />
+      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="303.0" layoutY="199.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Destination" />
+      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="453.0" layoutY="199.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="17.0" prefWidth="142.0" scaleShape="false" text="Evénement" />
+      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="617.0" layoutY="199.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="166.0" scaleShape="false" text="Date Dèbut Evénement" />
+      <Button layoutX="938.0" layoutY="736.0" mnemonicParsing="false" onAction="#modifierDemande" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #5D6D7E;" text="Modifier" textFill="#fffafa">
          <font>
             <Font size="13.5" />
          </font>
       </Button>
-      <Button layoutX="550.0" layoutY="398.0" mnemonicParsing="false" onAction="#SupprimarDemande" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #212F3C;" text="Supprimer" textFill="WHITE">
+      <Button layoutX="824.0" layoutY="736.0" mnemonicParsing="false" onAction="#SupprimarDemande" prefHeight="38.0" prefWidth="87.0" style="-fx-background-color: #212F3C;" text="Supprimer" textFill="WHITE">
          <font>
             <Font size="13.5" />
          </font>
       </Button>
-      <Button layoutX="636.0" layoutY="40.0" mnemonicParsing="false" onAction="#ajouterDemade" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #5D6D7E;" text="Ajouter Demande" textFill="#fffafa">
+      <Button layoutX="844.0" layoutY="56.0" mnemonicParsing="false" onAction="#ajouterDemade" prefHeight="38.0" prefWidth="160.0" style="-fx-background-color: #5D6D7E;" text="Ajouter Demande" textFill="#fffafa">
          <font>
             <Font size="13.5" />
          </font>
       </Button>
+      <Label alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="816.0" layoutY="199.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="166.0" scaleShape="false" text="Date Fin Evénement" />
+      <Separator layoutX="15.0" layoutY="710.0" prefHeight="3.0" prefWidth="1018.0" />
+      <Separator layoutX="44.0" layoutY="116.0" prefHeight="3.0" prefWidth="960.0" />
+      <HBox alignment="CENTER" layoutX="312.0" layoutY="126.0" prefHeight="39.0" prefWidth="373.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#getListDemandeEnAttante" prefHeight="39.0" prefWidth="129.0" style="-fx-background-color: light;" text="En attente">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+            <Button mnemonicParsing="false" onAction="#getListDemandeAccepter" prefHeight="31.0" prefWidth="101.0" style="-fx-background-color: light;" text="Accepter">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="6.0" />
+            <Button mnemonicParsing="false" onAction="#getListDemandReffuser" prefHeight="31.0" prefWidth="114.0" style="-fx-background-color: light;" text="Refuser">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

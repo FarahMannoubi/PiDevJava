@@ -79,7 +79,7 @@ public class ListDemandeEvenemetAdminController implements Initializable {
                     root.setAlignment(Pos.CENTER);
                     root.setPadding(new Insets(10 ,10, 20, 0));
                             
-                    root.getChildren().add(new Label());
+                    root.getChildren().add(new Label(de.getStatut()));
                     
                     Region region = new Region();
                     HBox.setHgrow(region, Priority.ALWAYS);

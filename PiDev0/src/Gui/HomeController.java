@@ -54,7 +54,7 @@ private Parent fxml;
 
     @FXML
     private void Partenaire(ActionEvent event) {
-         try{fxml=FXMLLoader.load(getClass().getResource("/Gui/AddDemandeEvenement.fxml"));
+         try{fxml=FXMLLoader.load(getClass().getResource("/Gui/ListDemendeEvenementPartenaire.fxml"));
         rootP.getChildren().removeAll();
         rootP.getChildren().setAll(fxml);
         

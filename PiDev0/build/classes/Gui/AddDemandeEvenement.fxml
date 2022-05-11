@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.ImageView?>
@@ -17,8 +18,12 @@
 
 <AnchorPane id="AnchorPane" fx:id="scroll" onContextMenuRequested="#DateCanged" prefHeight="780.0" prefWidth="918.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddDemandeEvenementController">
    <children>
-      <Pane layoutX="-1.0" layoutY="774.0" prefHeight="39.0" prefWidth="1029.0" />
-      <JFXButton layoutX="726.0" layoutY="733.0" onAction="#AjouterDemandeEvenement" prefHeight="53.0" prefWidth="120.0" styleClass="add-btn" stylesheets="@style.css" text="Valider" />
+      <Pane layoutX="-1.0" layoutY="807.0" prefHeight="6.0" prefWidth="1029.0" />
+      <JFXButton layoutX="726.0" layoutY="733.0" onAction="#AjouterDemandeEvenement" prefHeight="53.0" prefWidth="120.0" style="-fx-background-color: #e3dfde;" stylesheets="@style.css" text="Valider">
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="shadow" />
+         </styleClass></JFXButton>
       <HBox layoutX="27.0" layoutY="146.0" prefHeight="101.0" prefWidth="729.0" style="-fx-background-color: #ffffff;" styleClass="chosen-fruit-card" stylesheets="@style.css">
          <children>
             <Pane prefHeight="117.0" prefWidth="12.0" />
@@ -122,8 +127,8 @@
       </AnchorPane>
       <JFXButton layoutX="861.0" layoutY="744.0" onAction="#AddCoutEvenement" text="addCoutEvenement" />
       <Separator layoutX="16.0" layoutY="66.0" prefHeight="11.0" prefWidth="972.0" />
-      <ImageView fx:id="imageVue" fitHeight="243.0" fitWidth="192.0" layoutX="800.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
-      <FontAwesomeIconView glyphName="UPLOAD" layoutX="906.0" layoutY="426.0" onMouseClicked="#addImage" size="30" wrappingWidth="30.00001323223114" />
+      <ImageView fx:id="imageVue" fitHeight="290.0" fitWidth="192.0" layoutX="805.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIconView glyphName="UPLOAD" layoutX="893.0" layoutY="468.0" onMouseClicked="#addImage" size="30" wrappingWidth="30.00001323223114" />
       <Separator layoutX="19.0" layoutY="259.0" prefHeight="11.0" prefWidth="746.0" />
       <Label layoutX="19.0" layoutY="95.0" prefHeight="40.0" prefWidth="299.0" text="Données Demande :">
          <font>
@@ -141,5 +146,6 @@
          </font>
       </Label>
       <Separator layoutX="16.0" layoutY="704.0" prefHeight="11.0" prefWidth="972.0" />
+      <Separator layoutX="27.0" layoutY="496.0" prefHeight="11.0" prefWidth="746.0" />
    </children>
 </AnchorPane>

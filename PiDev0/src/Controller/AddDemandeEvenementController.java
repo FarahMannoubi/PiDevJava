@@ -301,7 +301,28 @@ public class AddDemandeEvenementController implements Initializable {
   
          ServiceDemandeEvenement sde=new ServiceDemandeEvenement();
         sde.addDemandeEvenement(de);
-      DemandeEvenement de1=new DemandeEvenement();
+           try {
+              FXMLLoader fxmlLoader = new FXMLLoader();
+               fxmlLoader.setLocation(getClass().getResource("/gui/AddCoutEvenement.fxml"));
+           // fxml=FXMLLoader.load(getClass().getResource("/gui/AddCoutEvenement.fxml"));
+             // scroll.getChildren().removeAll();
+             // scroll.getChildren().setAll(fxml);
+               Parent root = fxmlLoader.load();
+                      Stage stage;
+                      stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                      Scene scene=new Scene(root);
+                      stage.setScene(scene);
+                      stage.show();
+                       AddCoutEvenementController addCoutEvenementController=fxmlLoader.getController();
+ 
+   String libelle=de.getLibelleEvenement();
+         int idDemandeEvenemet=sde.idDemandeEvenementByLibelleDemandeEvenement(libelle).getId();
+   de.setId(idDemandeEvenemet);
+       addCoutEvenementController.AjouterCoutEvenement(de);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    /**  DemandeEvenement de1=new DemandeEvenement();
       de1.setDestination(idDestination);
       de1.setUtilisateur(2);
       de1.setDate_demande(dateDemande);
@@ -313,7 +334,7 @@ public class AddDemandeEvenementController implements Initializable {
       de1.setDate_finEvent(mydateFinEvenement.toString());
       de1.setHeure_finEvent(myFormattedHeureFin);
       de1.setDescription_event(tfDecriptionDemande.getText());
-      String libelle=tfLibelleEvenemet.getText();
+      String libelle=tfLibelleEvenemet.getText();*/
     // addcoutEvenemet(libelle);
     // listeLibelleCoutCategorie.setItems(FXCollections.observableArrayList(ListlibelleCoutCategories));
    
@@ -485,7 +506,7 @@ lbMin.setText(mintemp_c);
                       stage.setScene(scene);
                       stage.show();
                        AddCoutEvenementController addCoutEvenementController=fxmlLoader.getController();
-    //addCoutEvenementController.setDemandeEvenement(de);
+ 
    String libelle=de.getLibelleEvenement();
          int idDemandeEvenemet=sde.idDemandeEvenementByLibelleDemandeEvenement(libelle).getId();
    de.setId(idDemandeEvenemet);
@@ -493,7 +514,7 @@ lbMin.setText(mintemp_c);
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    //AddCoutEvenementController addCoutEvenementController=new AddCoutEvenementController();
+   
     
    
             }
